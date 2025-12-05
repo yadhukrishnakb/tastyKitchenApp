@@ -1,0 +1,133 @@
+.home-content-container {
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.heading-sort-options-container {
+  display: flex;
+  flex-direction: column;
+}
+.popular-restaurants-heading {
+  color: #183b56;
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+.popular-restaurants-description {
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 0px;
+  line-height: 24px;
+}
+.filter-container {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+}
+.filter-icon {
+  height: 24px;
+  width: 24px;
+  margin-right: 6px;
+}
+.select-option {
+  color: #475569;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  outline: none;
+}
+.restaurants-container {
+  padding-left: 0px;
+  display: flex;
+  flex-direction: column;
+}
+.restaurants-loader-container {
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.restaurants-failure-container {
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.restaurants-reload-btn {
+  height: 32px;
+  width: 73px;
+  border: none;
+  border-radius: 8px;
+  background-color: #f7931e;
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+}
+.pagination-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.pagination {
+  display: flex;
+  align-items: center;
+}
+.pagination-btn {
+  height: 24px;
+  width: 24px;
+  border: 1px solid #334155;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px;
+  cursor: pointer;
+}
+.arrow-icon {
+  color: #334155;
+  height: 18px;
+  width: 18px;
+}
+.pages {
+  color: #334155;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: 'Bree Serif';
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+@media screen and (min-width: 768px) {
+  .home-bg-container {
+    padding-left: 150px;
+    padding-right: 150px;
+    margin-top: 40px;
+  }
+  .home-content-container {
+    padding: 0px;
+  }
+  .heading-sort-options-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 110px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #cbd2d9;
+  }
+  .restaurants-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .restaurants-loader-container {
+    height: 350px;
+  }
+  .restaurants-failure-container {
+    height: 350px;
+  }
+}

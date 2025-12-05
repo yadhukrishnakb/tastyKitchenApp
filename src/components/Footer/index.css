@@ -1,0 +1,71 @@
+.footer {
+  height: 256px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #0f172a;
+}
+.website-logo-container-footer {
+  display: flex;
+  align-items: center;
+}
+.website-logo-footer {
+  width: 40px;
+  height: 32px;
+  margin-right: 15px;
+}
+.tasty-kitchens-heading-footer {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'DM sans';
+  font-style: italic;
+}
+.website-about-footer {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: center;
+}
+.social-icons-container-footer {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-top: 20px;
+}
+.social-icon {
+  color: white;
+  width: 24px;
+  height: 24px;
+}
+
+@media screen and (min-width: 768px) {
+  .footer {
+    height: 424px;
+    margin-top: 30px;
+  }
+  .website-about-footer {
+    height: 43px;
+    width: 53px;
+  }
+
+  .tasty-kitchens-heading-footer {
+    font-size: 32px;
+  }
+  .website-about-footer {
+    font-size: 24px;
+    width: 100%;
+    line-height: 32px;
+    margin-bottom: 50px;
+  }
+  .social-icons-container-footer {
+    gap: 40px;
+  }
+  .social-icon {
+    height: 48px;
+    width: 48px;
+  }
+}

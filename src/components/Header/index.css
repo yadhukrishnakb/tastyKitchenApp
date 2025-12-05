@@ -1,0 +1,136 @@
+.nav-bar {
+  padding-left: 0px;
+  padding: 20px;
+  margin-top: 0px;
+  background-color: white;
+  margin-bottom: 0px;
+}
+.navbar-item {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style-type: none;
+}
+.tasty-kitchens-logo-container {
+  display: flex;
+  align-items: center;
+}
+.tasty-kitchens-logo {
+  height: 32px;
+  width: 38px;
+  margin-right: 10px;
+}
+.tasty-kitchens-heading {
+  color: #f7931e;
+  font-size: 16px;
+  font-weight: 700;
+  font-style: italic;
+}
+.hamburger-btn {
+  background-color: transparent;
+  height: 24px;
+  width: 24px;
+  padding: 0px;
+  border: none;
+}
+.hamburger-icon {
+  height: 100%;
+  width: 100%;
+}
+.hamburger-items-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  padding-left: 5px;
+}
+.hamburger-items {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+}
+.link-item {
+  text-decoration: none;
+}
+.home-text {
+  color: #334155;
+  font-size: 16px;
+  margin-right: 20px;
+  font-weight: 500;
+}
+.cart-text {
+  color: #334155;
+  font-size: 16px;
+  margin-right: 20px;
+  font-weight: 500;
+}
+.active {
+  color: #f7931e;
+}
+.logout-btn {
+  border: none;
+  height: 32px;
+  width: 73px;
+  border-radius: 8px;
+  background-color: #f7931e;
+  font-size: 12px;
+  font-weight: 500;
+  color: #ffffff;
+  cursor: pointer;
+}
+.close-btn {
+  background-color: transparent;
+  padding: 0px;
+  height: 24px;
+  width: 24px;
+  border: none;
+}
+.close-icon {
+  height: 100%;
+  width: 100%;
+}
+
+/* Desktop View Css */
+@media screen and (min-width: 768px) {
+  .nav-bar {
+    display: none;
+  }
+}
+
+.desktop-nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  margin-top: 0px;
+  padding-left: 150px;
+  padding-right: 150px;
+  margin-bottom: 0px;
+}
+.desktop-tasty-kitchens-logo-container {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+}
+.tasty-kitchens-logo-desktop {
+  height: 43px;
+  width: 53px;
+  margin-right: 10px;
+}
+.tasty-kitchens-heading-desktop {
+  color: #f7931e;
+  font-size: 24px;
+  font-weight: 700;
+}
+.nav-items-container-desktop {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  .desktop-nav-bar {
+    display: none;
+  }
+}

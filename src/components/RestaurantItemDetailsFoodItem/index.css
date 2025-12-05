@@ -1,0 +1,119 @@
+.restaurant-item-details-food-item {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  padding: 9px;
+  margin: 5px;
+  width: 370px;
+}
+.food-item-details-container {
+  margin-left: 10px;
+  align-self: flex-start;
+}
+.food-item-name {
+  color: #334155;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 0px;
+  margin-top: 5px;
+}
+.food-item-cost {
+  color: #334155;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+.food-item-image {
+  height: 100px;
+  width: 160px;
+  border-radius: 8px;
+}
+.food-item-rating-container {
+  display: flex;
+  align-items: center;
+}
+.food-item-star-icon {
+  color: #ffcc00;
+  height: 14px;
+  width: 14px;
+  margin-bottom: 6px;
+  margin-right: 5px;
+}
+.food-item-rating {
+  color: #1e293b;
+  font-size: 14px;
+  font-weight: 700;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.btn-link-item-container {
+  display: flex;
+  margin-top: 5px;
+}
+
+.food-item-add-btn {
+  height: 23px;
+  width: 42px;
+  background-color: transparent;
+  border: 1px solid #ffa412;
+  border-radius: 5px;
+  color: #ffa412;
+  font-size: 8px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.link-item-close-icon-container {
+  display: flex;
+  align-items: center;
+}
+.close-btn {
+  height: 15px;
+  width: 15px;
+  background-color: none;
+  border: none;
+  padding: 0px;
+  align-self: flex-end;
+}
+.close-icon {
+  margin-left: 5px;
+  cursor: pointer;
+}
+.go-to-car-link-item {
+  margin-left: 5px;
+  align-self: flex-end;
+  font-size: 12px;
+  color: #555;
+  text-decoration: none;
+}
+.restaurant-food-item-counter-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.quantity-adjuster-btn-food-item {
+  height: 24px;
+  width: 24px;
+  background-color: white;
+  border: 1px solid #3e4c59;
+  color: #3e4c59;
+}
+.quantity-food-item {
+  color: #475569;
+  font-size: 16px;
+  font-weight: 500;
+}
+.grey-out {
+  background-color: #d3d3d3; /* soft grey */
+  color: #808080; /* darker grey text */
+  opacity: 0.7; /* light faded look */
+  cursor: not-allowed; /* disabled cursor */
+  pointer-events: none; /* no clicks */
+  border: 1px solid #c0c0c0; /* soft border */
+}
+
+@media screen and (min-width: 768px) {
+  .food-item-details-container {
+    align-self: center;
+  }
+}

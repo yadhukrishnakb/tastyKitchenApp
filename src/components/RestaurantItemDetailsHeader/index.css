@@ -1,0 +1,113 @@
+.restaurant-item-details-header {
+  height: 220px;
+  width: 100%;
+  background-color: #333333;
+}
+.restaurant-item-details-header-content-container {
+  display: flex;
+}
+.restaurant-item-details-header-image {
+  height: 190px;
+  width: 200px;
+  border-top-right-radius: 200px;
+  border-bottom-right-radius: 200px;
+  border-bottom-left-radius: 200px;
+  margin-right: 20px;
+}
+.restaurant-item-details-header-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.restaurant-item-details-header-restaurant-name {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 0px;
+}
+.restaurant-item-details-header-cuisine {
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 400;
+  margin-bottom: 0px;
+}
+.restaurant-item-details-header-restaurant-location {
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 400;
+  margin-bottom: 0px;
+}
+.restaurant-item-details-header-rating-cost-for-two-container {
+  display: flex;
+  align-items: center;
+}
+.restaurant-item-details-header-rating-reviews-container {
+  display: flex;
+  flex-direction: column;
+  width: 75px;
+}
+.restaurant-item-details-header-rating-container {
+  display: flex;
+  align-items: center;
+}
+.restaurant-item-details-header-star-icon {
+  color: white;
+  height: 14px;
+  width: 14px;
+  margin-top: 7px;
+}
+.restaurant-item-details-header-rating {
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+.restaurant-item-details-header-total-reviews {
+  color: white;
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: 0px;
+}
+.v-line {
+  color: white;
+  width: 1px;
+  height: 35px;
+}
+.restaurant-item-details-header-cost-for-two-container {
+  display: flex;
+  flex-direction: column;
+}
+.cost-for-two {
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+.cost-for-two-text {
+  color: white;
+  margin-top: 0px;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+@media screen and (min-width: 768px) {
+  .restaurant-item-details-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 200px;
+  }
+  .restaurant-item-details-header-image {
+    border-radius: 0px;
+    width: 270px;
+    height: 160px;
+  }
+  .restaurant-item-details-header-text-container {
+    width: 40%;
+  }
+  .v-line {
+    margin-right: 30px;
+    margin-left: 30px;
+  }
+}

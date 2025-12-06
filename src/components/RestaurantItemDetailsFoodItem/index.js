@@ -6,87 +6,6 @@ import {IoMdCloseCircle} from 'react-icons/io'
 
 import './index.css'
 
-/* const RestaurantItemDetailsFoodItem = props => {
-  const {
-    data,
-    toggleBtnCounter,
-    onAddItem,
-    itemQuantity,
-    onDecrementQuantity,
-    onIncrementQuantity,
-  } = props
-  const {cost, foodType, id, imageUrl, name, rating} = data
-
-  const onClickAddBtn = () => {
-    const foodItem = {
-      cost,
-      quantity: 1,
-      id,
-      imageUrl,
-      name,
-    }
-
-    onAddItem(foodItem)
-  }
-
-  const onClickDecrementBtn = () => {
-    onDecrementQuantity(id)
-  }
-
-  const onClickIncrementBtn = () => {
-    onIncrementQuantity(id)
-  }
-
-  const counter = () => (
-    <div className="restaurant-food-item-counter-container">
-      <button
-        data-testid="decrement-count"
-        onClick={onClickDecrementBtn}
-        type="button"
-        className="quantity-adjuster-btn-food-item"
-      >
-        -
-      </button>
-      <span data-testid="active-count" className="quantity-food-item">
-        {itemQuantity}
-      </span>
-      <button
-        data-testid="increment-count"
-        onClick={onClickIncrementBtn}
-        type="button"
-        className="quantity-adjuster-btn-food-item"
-      >
-        +
-      </button>
-    </div>
-  )
-
-  return (
-    <li data-testid="foodItem" className="restaurant-item-details-food-item">
-      <img src={imageUrl} className="food-item-image" alt="food item" />
-      <div className="food-item-details-container">
-        <h1 className="food-item-name">{name}</h1>
-        <p className="food-item-cost">₹ {cost}.00</p>
-        <div className="food-item-rating-container">
-          <FaStar className="food-item-star-icon" />
-          <p className="food-item-rating">{rating}</p>
-        </div>
-        {toggleBtnCounter ? (
-          counter()
-        ) : (
-          <button
-            onClick={onClickAddBtn}
-            type="button"
-            className="food-item-add-btn"
-          >
-            Add
-          </button>
-        )}
-      </div>
-    </li>
-  )
-} */
-
 class RestaurantItemDetailsFoodItem extends Component {
   state = {quantity: 1}
 
@@ -105,6 +24,7 @@ class RestaurantItemDetailsFoodItem extends Component {
     const {data} = this.props
     const {id} = data
     onRemoveItem(id)
+    this.setState({quantity: 1})
   }
 
   onClickDecrement = () => {
@@ -187,6 +107,7 @@ class RestaurantItemDetailsFoodItem extends Component {
                     In Cart {`Qt: ${itemQuantity}`}
                   </Link>
                   <button
+                    type="button"
                     onClick={this.onClickRemoveItem}
                     className="close-btn"
                   >
@@ -203,3 +124,84 @@ class RestaurantItemDetailsFoodItem extends Component {
 }
 
 export default RestaurantItemDetailsFoodItem
+
+/* const RestaurantItemDetailsFoodItem = props => {
+  const {
+    data,
+    toggleBtnCounter,
+    onAddItem,
+    itemQuantity,
+    onDecrementQuantity,
+    onIncrementQuantity,
+  } = props
+  const {cost, foodType, id, imageUrl, name, rating} = data
+
+  const onClickAddBtn = () => {
+    const foodItem = {
+      cost,
+      quantity: 1,
+      id,
+      imageUrl,
+      name,
+    }
+
+    onAddItem(foodItem)
+  }
+
+  const onClickDecrementBtn = () => {
+    onDecrementQuantity(id)
+  }
+
+  const onClickIncrementBtn = () => {
+    onIncrementQuantity(id)
+  }
+
+  const counter = () => (
+    <div className="restaurant-food-item-counter-container">
+      <button
+        data-testid="decrement-count"
+        onClick={onClickDecrementBtn}
+        type="button"
+        className="quantity-adjuster-btn-food-item"
+      >
+        -
+      </button>
+      <span data-testid="active-count" className="quantity-food-item">
+        {itemQuantity}
+      </span>
+      <button
+        data-testid="increment-count"
+        onClick={onClickIncrementBtn}
+        type="button"
+        className="quantity-adjuster-btn-food-item"
+      >
+        +
+      </button>
+    </div>
+  )
+
+  return (
+    <li data-testid="foodItem" className="restaurant-item-details-food-item">
+      <img src={imageUrl} className="food-item-image" alt="food item" />
+      <div className="food-item-details-container">
+        <h1 className="food-item-name">{name}</h1>
+        <p className="food-item-cost">₹ {cost}.00</p>
+        <div className="food-item-rating-container">
+          <FaStar className="food-item-star-icon" />
+          <p className="food-item-rating">{rating}</p>
+        </div>
+        {toggleBtnCounter ? (
+          counter()
+        ) : (
+          <button
+            onClick={onClickAddBtn}
+            type="button"
+            className="food-item-add-btn"
+          >
+            Add
+          </button>
+        )}
+      </div>
+    </li>
+  )
+} */

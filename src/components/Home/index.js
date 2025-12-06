@@ -3,7 +3,7 @@ import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
 
 import {BsFilterLeft} from 'react-icons/bs'
-import {IoMdArrowDropdown} from 'react-icons/io'
+// import {IoMdArrowDropdown} from 'react-icons/io'
 import {MdKeyboardArrowLeft, MdKeyboardArrowRight} from 'react-icons/md'
 
 import Header from '../Header'

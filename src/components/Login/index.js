@@ -15,7 +15,6 @@ class Login extends Component {
 
   submitForm = async event => {
     event.preventDefault()
-    console.log('triggered')
 
     const {username, password} = this.state
 
@@ -50,7 +49,7 @@ class Login extends Component {
       return <Redirect to="/" />
     }
 
-    const {submitError, errorMsg} = this.state
+    const {submitError, errorMsg, username, password} = this.state
 
     return (
       <>
@@ -59,7 +58,7 @@ class Login extends Component {
             <img
               src="https://res.cloudinary.com/dvzcnvazm/image/upload/v1764486500/mobile-view-tastykitchen-login-image_qdlqwe.png"
               className="login-page-image"
-              alt="website logo"
+              alt="website login"
             />
             <h1 className="login-heading">Login</h1>
           </div>
@@ -69,16 +68,18 @@ class Login extends Component {
             </label>
             <input
               id="username"
+              value={username}
               onChange={this.onChangeUsername}
               type="text"
               className="user-input"
             />
 
-            <label className="label" htmlFor="username">
+            <label className="label" htmlFor="password">
               PASSWORD
             </label>
             <input
               id="password"
+              value={password}
               onChange={this.onChangePassword}
               type="password"
               className="user-input password-input"
@@ -96,12 +97,12 @@ class Login extends Component {
                 <img
                   src="https://res.cloudinary.com/dvzcnvazm/image/upload/v1764493337/chef-hat_ze2mcz.png"
                   className="chef-hat-icon"
-                  alt="chef-hat"
+                  alt="website logo"
                 />
                 <h1 className="tasty-kitchen-heading-desktop-login-view">
                   Tasty Kitchens
                 </h1>
-                <h1 className="login-heading-desktop-login-view">Login</h1>
+                <p className="login-heading-desktop-login-view">Login</p>
                 <form
                   onSubmit={this.submitForm}
                   className="login-form-desktop-view"
@@ -110,6 +111,8 @@ class Login extends Component {
                     USERNAME
                   </label>
                   <input
+                    id="username"
+                    value={username}
                     onChange={this.onChangeUsername}
                     type="text"
                     className="user-input-desktop-view"
@@ -118,6 +121,8 @@ class Login extends Component {
                     PASSWORD
                   </label>
                   <input
+                    id="password"
+                    value={password}
                     onChange={this.onChangePassword}
                     type="password"
                     className="user-input-desktop-view password-input-desktop-view"

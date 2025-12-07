@@ -46,12 +46,19 @@
   color: #3e4c59;
   background-color: transparent;
 }
+.cart-item-cost-container {
+  display: flex;
+  align-items: center;
+  color: #ffa412;
+  font-weight: 700;
+}
 .cart-item-cost {
   color: #ffa412;
   font-size: 16px;
   font-weight: 700;
   font-family: 'DM Sans';
-  margin-top: 10px;
+  margin-left: 5px;
+  display: inline;
 }
 
 @media screen and (min-width: 768px) {
@@ -71,8 +78,6 @@
     font-size: 20px;
   }
   .cart-item-cost {
-    width: 200px;
     font-size: 16px;
-    text-align: right;
   }
 }

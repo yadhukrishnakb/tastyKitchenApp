@@ -40,6 +40,7 @@ class Home extends Component {
     activePage: 1,
     limit: 9,
     totalPages: 0,
+    searchInput: '',
   }
 
   componentDidMount() {
@@ -49,12 +50,15 @@ class Home extends Component {
   getRestaurants = async () => {
     this.setState({apiStatus: apiStatusConstants.inProgress})
 
-    const {sortBy, activePage, limit} = this.state
+    const {sortBy, activePage, limit, searchInput} = this.state
     const offset = (activePage - 1) * limit
 
     const jwtToken = Cookies.get('jwt_token')
-    const url = `https://apis.ccbp.in/restaurants-list?offset=${offset}&limit=
-    ${limit}&sort_by_rating=${sortBy}`
+    /* const url = `https://apis.ccbp.in/restaurants-list?offset=${offset}&limit=
+    ${limit}&sort_by_rating=${sortBy}` */
+
+    const url = `https://apis.ccbp.in/restaurants-list?offset=${offset}&limit=${limit}&sort_by_rating=${sortBy}&search=${searchInput}
+`
     const options = {
       method: 'GET',
       headers: {
@@ -138,7 +142,7 @@ class Home extends Component {
   renderLoader = () => (
     <div
       className="restaurants-loader-container"
-      data-testid="restaurants-list-loader"
+      testid="restaurants-list-loader"
     >
       <Loader type="Oval" color="#F7931E" height="32" width="32" />
     </div>
@@ -194,6 +198,7 @@ class Home extends Component {
               </div>
               <div className="filter-container">
                 <BsFilterLeft className="filter-icon" />
+                <p>Sort By</p>
                 <select
                   value={sortBy}
                   onChange={this.onChangeSortBy}
@@ -201,7 +206,7 @@ class Home extends Component {
                 >
                   {sortByOptions.map(eachItem => (
                     <option key={eachItem.id} value={eachItem.value}>
-                      Sort By {eachItem.displayText}
+                      {eachItem.displayText}
                     </option>
                   ))}
                 </select>
@@ -212,20 +217,22 @@ class Home extends Component {
             <div className="pagination-container">
               <div className="pagination">
                 <button
-                  data-testid="pagination-left-button"
+                  testid="pagination-left-button"
                   onClick={this.onClickPreviousPage}
                   type="button"
-                  className="pagination-btn"
+                  className="pagination-btn left"
                 >
                   <MdKeyboardArrowLeft className="arrow-icon" />
                 </button>
-                <span data-testid="active-page-number" className="pages">
-                  {activePage} of {totalPages}
+                <span testid="active-page-number" className="pages">
+                  {activePage}
                 </span>
+                <span className="pages-middle-text pages">of</span>
+                <span className="pages">{totalPages}</span>
                 <button
-                  data-testid="pagination-right-button"
+                  testid="pagination-right-button"
                   onClick={this.onClickNextPage}
-                  className="pagination-btn"
+                  className="pagination-btn right"
                   type="button"
                 >
                   <MdKeyboardArrowRight className="arrow-icon" />

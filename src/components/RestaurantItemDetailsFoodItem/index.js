@@ -14,7 +14,14 @@ class RestaurantItemDetailsFoodItem extends Component {
     const {cost, id, imageUrl, name} = data
     const {quantity} = this.state
     const recalculatedCost = quantity * cost
-    const product = {cost: recalculatedCost, quantity, id, imageUrl, name}
+    const product = {
+      cost: cost * 1,
+      quantity: 1,
+      id,
+      imageUrl,
+      name,
+      unitCost: cost,
+    }
 
     onAddItem(product)
   }
@@ -28,80 +35,85 @@ class RestaurantItemDetailsFoodItem extends Component {
   }
 
   onClickDecrement = () => {
-    this.setState(prevState => ({
-      quantity: prevState.quantity > 1 ? prevState.quantity - 1 : 1,
-    }))
+    const {onDecrementQuantity, data} = this.props
+    const {id} = data
+    onDecrementQuantity(id)
   }
 
   onClickIncrement = () => {
-    this.setState(prevState => ({quantity: prevState.quantity + 1}))
+    const {onIncrementQuantity, data} = this.props
+    const {id} = data
+    onIncrementQuantity(id)
   }
 
-  counter = (quantity, isItemInCart) => (
-    <div className="restaurant-food-item-counter-container">
-      <button
-        disabled={isItemInCart}
-        data-testid="decrement-count"
-        onClick={this.onClickDecrement}
-        type="button"
-        className={
-          isItemInCart
-            ? 'grey-out quantity-adjuster-btn-food-item'
-            : 'quantity-adjuster-btn-food-item'
-        }
-      >
-        -
-      </button>
-      <span data-testid="active-count" className="quantity-food-item">
-        {quantity}
-      </span>
-      <button
-        disabled={isItemInCart}
-        data-testid="increment-count"
-        onClick={this.onClickIncrement}
-        type="button"
-        className={
-          isItemInCart
-            ? 'grey-out quantity-adjuster-btn-food-item'
-            : 'quantity-adjuster-btn-food-item'
-        }
-      >
-        +
-      </button>
-    </div>
-  )
+  counter = (itemQuantity, isItemInCart) =>
+    itemQuantity > 0 ? (
+      <div className="restaurant-food-item-counter-container">
+        <button
+          testid="decrement-count"
+          onClick={this.onClickDecrement}
+          type="button"
+          className={
+            isItemInCart
+              ? 'quantity-adjuster-btn-food-item'
+              : 'quantity-adjuster-btn-food-item'
+          }
+        >
+          -
+        </button>
+        {itemQuantity > 0 ? (
+          <span testid="active-count" className="quantity-food-item">
+            {itemQuantity}
+          </span>
+        ) : null}
+        <button
+          testid="increment-count"
+          onClick={this.onClickIncrement}
+          type="button"
+          className={
+            isItemInCart
+              ? 'quantity-adjuster-btn-food-item'
+              : 'quantity-adjuster-btn-food-item'
+          }
+        >
+          +
+        </button>
+      </div>
+    ) : null
 
   render() {
     const {data, isItemInCart, itemQuantity} = this.props
     const {name, imageUrl, rating, cost} = data
-    const {quantity} = this.state
+    //const {quantity} = this.state
 
     return (
-      <li data-testid="foodItem" className="restaurant-item-details-food-item">
+      <li testid="foodItem" className="restaurant-item-details-food-item">
         <img src={imageUrl} className="food-item-image" alt="food item" />
         <div className="food-item-details-container">
           <h1 className="food-item-name">{name}</h1>
-          <p className="food-item-cost">₹ {cost}.00</p>
+          <span className="food-item-cost ruppe-symbol">₹</span>
+          <p className="food-item-cost">{cost}</p>
+          <span className="food-item-cost">.00</span>
           <div className="food-item-rating-container">
             <FaStar className="food-item-star-icon" />
             <p className="food-item-rating">{rating}</p>
           </div>
           <div>
-            {this.counter(quantity, isItemInCart)}
+            {itemQuantity === 0
+              ? null
+              : this.counter(itemQuantity, isItemInCart)}
 
             <div className="btn-link-item-container">
               <button
                 onClick={this.onClickAddBtn}
                 type="button"
                 className={
-                  isItemInCart
-                    ? 'grey-out food-item-add-btn'
-                    : 'food-item-add-btn'
+                  isItemInCart ? 'food-item-add-btn' : 'food-item-add-btn'
                 }
               >
                 Add
               </button>
-              {isItemInCart && (
+              {itemQuantity !== 0 ? (
                 <div className="link-item-close-icon-container">
                   <Link className="go-to-car-link-item" to="/cart">
                     In Cart {`Qt: ${itemQuantity}`}
@@ -114,7 +126,7 @@ class RestaurantItemDetailsFoodItem extends Component {
                     <IoMdCloseCircle className="close-icon" />
                   </button>
                 </div>
-              )}
+              ) : null}
             </div>
           </div>
         </div>

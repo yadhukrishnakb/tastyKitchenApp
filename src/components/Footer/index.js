@@ -22,19 +22,16 @@ const Footer = () => (
     </p>
     <div className="social-icons-container-footer">
       <FaPinterestSquare
-        data-testid="pintrest-social-icon"
+        testid="pintrest-social-icon"
         className="social-icon pinterest"
       />
       <FaInstagram
-        data-testid="instagram-social-icon"
+        testid="instagram-social-icon"
         className="social-icon instagram"
       />
-      <FaTwitter
-        data-testid="twitter-social-icon"
-        className="social-icon twitter"
-      />
+      <FaTwitter testid="twitter-social-icon" className="social-icon twitter" />
       <FaFacebookSquare
-        data-testid="facebook-social-icon"
+        testid="facebook-social-icon"
         className="social-icon facebook"
       />
     </div>

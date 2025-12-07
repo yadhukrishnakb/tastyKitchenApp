@@ -89,18 +89,26 @@
   padding: 0px;
   cursor: pointer;
 }
+.right {
+  margin-left: 15px;
+}
+.left {
+  margin-right: 15px;
+}
 .arrow-icon {
   color: #334155;
   height: 18px;
   width: 18px;
+}
+.pages-middle-text {
+  margin-right: 3px;
+  margin-left: 3px;
 }
 .pages {
   color: #334155;
   font-size: 16px;
   font-weight: 400;
   font-family: 'Bree Serif';
-  margin-left: 15px;
-  margin-right: 15px;
 }
 
 @media screen and (min-width: 768px) {

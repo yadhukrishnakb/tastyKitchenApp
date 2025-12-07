@@ -23,7 +23,12 @@
   font-weight: 500;
   margin-top: 5px;
   margin-bottom: 0px;
+  display: inline;
 }
+.ruppe-symbol {
+  margin-right: 5px;
+}
+
 .food-item-image {
   height: 100px;
   width: 160px;

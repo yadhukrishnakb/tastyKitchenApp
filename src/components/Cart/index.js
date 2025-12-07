@@ -1,4 +1,5 @@
 import {Component} from 'react'
+import {Link} from 'react-router-dom'
 
 import Header from '../Header'
 import CartItem from '../CartItem'
@@ -39,17 +40,18 @@ class Cart extends Component {
   onDecrementQuantity = id => {
     this.setState(
       prevState => ({
-        cartData: prevState.cartData.map(eachItem => {
-          if (eachItem.id === id) {
-            const updatedQuantity =
-              eachItem.quantity > 1 ? eachItem.quantity - 1 : 1
-            const updatedCost =
-              (eachItem.cost / eachItem.quantity) * updatedQuantity
+        cartData: prevState.cartData
+          .map(eachItem => {
+            if (eachItem.id === id) {
+              const updatedQuantity =
+                eachItem.quantity > 0 ? eachItem.quantity - 1 : 0
+              const updatedCost = eachItem.unitCost * updatedQuantity
 
-            return {...eachItem, cost: updatedCost, quantity: updatedQuantity}
-          }
-          return eachItem
-        }),
+              return {...eachItem, cost: updatedCost, quantity: updatedQuantity}
+            }
+            return eachItem
+          })
+          .filter(eachItem => eachItem.quantity !== 0),
       }),
       this.updateLocalStorage,
     )
@@ -58,19 +60,20 @@ class Cart extends Component {
   onIncrementQuantity = id => {
     this.setState(
       prevState => ({
-        cartData: prevState.cartData.map(eachItem => {
-          if (eachItem.id === id) {
-            const updatedQuantity = eachItem.quantity + 1
-            const updatedCost =
-              (eachItem.cost / eachItem.quantity) * updatedQuantity
-            return {
-              ...eachItem,
-              quantity: updatedQuantity,
-              cost: updatedCost,
+        cartData: prevState.cartData
+          .map(eachItem => {
+            if (eachItem.id === id) {
+              const updatedQuantity = eachItem.quantity + 1
+              const updatedCost = eachItem.unitCost * updatedQuantity
+              return {
+                ...eachItem,
+                quantity: updatedQuantity,
+                cost: updatedCost,
+              }
             }
-          }
-          return eachItem
-        }),
+            return eachItem
+          })
+          .filter(eachItem => eachItem.quantity !== 0),
       }),
       this.updateLocalStorage,
     )
@@ -100,17 +103,15 @@ class Cart extends Component {
         className="empty-cart-image"
         alt="empty cart"
       />
-      <h1 className="empty-cart-heading">No Orders Yet!</h1>
+      <h1 className="empty-cart-heading">No Order Yet!</h1>
       <p className="empty-cart-description">
         Your cart is empty. Add something from the menu.
       </p>
-      <button
-        type="button"
-        onClick={this.onClickRedirectToHome}
-        className="order-now-btn"
-      >
-        Order Now
-      </button>
+      <Link to="/">
+        <button type="button" className="order-now-btn">
+          Order Now
+        </button>
+      </Link>
     </div>
   )
 
@@ -126,13 +127,11 @@ class Cart extends Component {
         Thank you for ordering <br />
         Your payment is successfully completed.
       </p>
-      <button
-        type="button"
-        onClick={this.onClickRedirectToHome}
-        className="go-to-home-page-btn"
-      >
-        Go To Home Page
-      </button>
+      <Link to="/">
+        <button type="button" className="go-to-home-page-btn">
+          Go To Home Page
+        </button>
+      </Link>
     </div>
   )
 
@@ -166,8 +165,14 @@ class Cart extends Component {
           ))}
         </ul>
         <div className="cart-total-price-container">
-          <p className="order-total-text">Order Total : </p>
-          <p className="cart-total-price">₹{this.getTotalCost()}.00</p>
+          <h1 className="order-total-text">Order Total:</h1>
+          <div className="cost-container">
+            <span className="total-price ruppee-symbol">₹</span>
+            <p testid="total-price" className="cart-total-price">
+              {this.getTotalCost()}
+            </p>
+            <span className="total-price">.00</span>
+          </div>
         </div>
         <div className="place-order-btn-container">
           <button

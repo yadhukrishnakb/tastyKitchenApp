@@ -100,6 +100,10 @@ class RestaurantItemDetails extends Component {
     const isIncluded = cart.find(each => each.id === foodItem.id)
 
     if (isIncluded === undefined) {
+      if (foodItem.quantity === 0) {
+        return
+      }
+
       this.setState(
         prevState => ({
           cart: [...prevState.cart, foodItem],
@@ -121,7 +125,7 @@ class RestaurantItemDetails extends Component {
 
     const quantity = cart.find(each => each.id === id)
     if (quantity === undefined) {
-      return 1
+      return 0
     }
 
     return quantity.quantity
@@ -130,18 +134,24 @@ class RestaurantItemDetails extends Component {
   onDecrementQuantity = id => {
     this.setState(
       prevState => ({
-        cart: prevState.cart.map(eachItem => {
-          if (eachItem.id === id) {
-            return {
-              cost: eachItem.cost,
-              quantity: eachItem.quantity > 1 ? eachItem.quantity - 1 : 1,
-              id: eachItem.id,
-              imageUrl: eachItem.imageUrl,
-              name: eachItem.name,
+        cart: prevState.cart
+          .map(eachItem => {
+            if (eachItem.id === id) {
+              const updatedtQuantity =
+                eachItem.quantity > 0 ? eachItem.quantity - 1 : 0
+              const updatedtCost = eachItem.unitCost * updatedtQuantity
+              return {
+                cost: updatedtCost,
+                quantity: updatedtQuantity,
+                id: eachItem.id,
+                imageUrl: eachItem.imageUrl,
+                name: eachItem.name,
+                unitCost: eachItem.unitCost,
+              }
             }
-          }
-          return eachItem
-        }),
+            return eachItem
+          })
+          .filter(eachItem => eachItem.quantity !== 0),
       }),
       this.addToLocalStorage,
     )
@@ -150,18 +160,23 @@ class RestaurantItemDetails extends Component {
   onIncrementQuantity = id => {
     this.setState(
       prevState => ({
-        cart: prevState.cart.map(eachItem => {
-          if (eachItem.id === id) {
-            return {
-              cost: eachItem.cost,
-              quantity: eachItem.quantity + 1,
-              id: eachItem.id,
-              imageUrl: eachItem.imageUrl,
-              name: eachItem.name,
+        cart: prevState.cart
+          .map(eachItem => {
+            if (eachItem.id === id) {
+              const updatedQuantity = eachItem.quantity + 1
+              const updatedtCost = eachItem.unitCost * updatedQuantity
+              return {
+                cost: updatedtCost,
+                quantity: updatedQuantity,
+                id: eachItem.id,
+                imageUrl: eachItem.imageUrl,
+                name: eachItem.name,
+                unitCost: eachItem.unitCost,
+              }
             }
-          }
-          return eachItem
-        }),
+            return eachItem
+          })
+          .filter(eachItem => eachItem.quantity !== 0),
       }),
       this.addToLocalStorage,
     )
@@ -201,7 +216,7 @@ class RestaurantItemDetails extends Component {
   renderLoader = () => (
     <div
       className="restaurant-item-details-loader-container"
-      data-testid="restaurant-details-loader"
+      testid="restaurant-details-loader"
     >
       <Loader type="Oval" color="#F7931E" height="32" width="32" />
     </div>

@@ -1,7 +1,7 @@
 .login-bg-container-mobile {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
   justify-content: center;
   align-items: center;
 }
@@ -13,7 +13,7 @@
   order: 1;
   background-size: cover;
 }
-.login-heading {
+.login-heading-mobile {
   align-self: flex-end;
   font-weight: 500;
   font-size: 24px;
@@ -65,110 +65,71 @@
 
 /*Desktop View Css*/
 
+.tasty-kitchens-heading-login {
+  color: #f7931e;
+  font-size: 24px;
+  font-weight: 700;
+  font-style: italic;
+  font-family: 'DM Sans';
+  margin-top: 5px;
+}
+.website-logo-login {
+  display: block;
+  height: 43px;
+  width: 53px;
+}
+.login-heading-desktop {
+  color: #0f172a;
+  font-size: 32px;
+  font-family: 'DM Sans';
+  font-weight: 500;
+  margin-bottom: 40px;
+}
+.login-container-desktop {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding-top: 50px;
+}
+
 @media screen and (min-width: 768px) {
   .login-bg-container-mobile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .login-page-image {
+    display: none;
+  }
+
+  .login-heading-mobile {
     display: none;
   }
 }
 
-.login-bg-container-desktop {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-.login-content-container-desktop {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-}
-.content-left-section-container-desktop {
-  width: 60%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.desktop-login-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.12);
-  background-color: #fefeff;
-  padding: 30px;
-}
-.chef-hat-icon {
-  height: 39px;
-  width: 49px;
-}
-.tasty-kitchen-heading-desktop-login-view {
-  color: #f7931e;
-  font-size: 24px;
-  font-weight: 700;
-  margin-top: 3px;
-  font-style: italic;
-}
-.login-heading-desktop-login-view {
-  color: #0f172a;
-  font-size: 32px;
-  font-weight: 500;
-  line-height: 40px;
-}
-.login-form-desktop-view {
-  margin-top: 40px;
-}
-.label-desktop-view {
-  display: block;
-  color: #475569;
-  font-size: 12px;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-.user-input-desktop-view {
-  display: block;
-  width: 360px;
-  height: 40px;
-  border: none;
-  background-color: #e2e8f0;
-  border-radius: 2px;
-  padding-left: 10px;
-  outline: none;
-  margin-bottom: 20px;
-}
-.password-input-desktop-view {
-  margin-bottom: 5px;
-}
-.error-msg-desktop-view {
-  color: #ef4444;
-  font-size: 14px;
-  font-weight: 400;
-  margin-top: 0px;
-  margin-bottom: 10px;
-}
-.login-btn-desktop-view {
-  width: 360px;
-  height: 40px;
-  border: none;
-  border-radius: 8px;
-  background-color: #f7931e;
-  font-size: 14px;
-  font-weight: 700;
-  color: #ffffff;
-  cursor: pointer;
-  margin-top: 20px;
-}
-.content-right-section-container-desktop {
-  height: 100%;
-  width: 705px;
-}
-.tasty-kitchen-desktop-view-image {
-  height: 100%;
-  width: 100%;
-}
-
 @media screen and (max-width: 768px) {
-  .login-bg-container-desktop {
+  .website-logo {
+    display: none;
+  }
+  .tasty-kitchens-heading {
+    display: none;
+  }
+  .login-heading-desktop {
+    display: none;
+  }
+  .tasty-kitchens-heading-login {
+    display: none;
+  }
+  .website-logo-login {
+    display: none;
+  }
+  .login-container-desktop {
+    box-shadow: none;
+    padding-top: 20px;
+  }
+  .login-image-desktop {
     display: none;
   }
 }

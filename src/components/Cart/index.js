@@ -7,13 +7,15 @@ import Footer from '../Footer'
 
 import './index.css'
 
-const sampleData = [{
-  id: "1",
-  name: "Chicken Salad",
-  imageUrl: "https://assets.ccbp.in/frontend/react-js/tasty-kitchens/food-items-2/chicken-salad-16.jpg",
-  quantity: 5,
-  cost: 345
-}
+const sampleData = [
+  {
+    id: '1',
+    name: 'Chicken Salad',
+    imageUrl:
+      'https://assets.ccbp.in/frontend/react-js/tasty-kitchens/food-items-2/chicken-salad-16.jpg',
+    quantity: 5,
+    cost: 345,
+  },
 ]
 
 //localStorage.setItem("cartData",JSON.stringify(sampleData))
@@ -45,7 +47,7 @@ class Cart extends Component {
           ...eachItem,
           cost: eachItem.cost * eachItem.quantity,
         }
-      }) 
+      })
       this.setState({
         cartData: data,
       })

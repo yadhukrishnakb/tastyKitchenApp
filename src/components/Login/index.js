@@ -60,90 +60,49 @@ class Login extends Component {
               className="login-page-image"
               alt="website login"
             />
-            <h1 className="login-heading">Login</h1>
+            <h1 className="login-heading-mobile">Login</h1>
           </div>
-          <form onSubmit={this.submitForm} className="login-container">
-            <label className="label" htmlFor="username">
-              USERNAME
-            </label>
-            <input
-              id="username"
-              value={username}
-              onChange={this.onChangeUsername}
-              type="text"
-              className="user-input"
+          <div className="login-container-desktop">
+            <img
+              src="https://res.cloudinary.com/dvzcnvazm/image/upload/v1764493337/chef-hat_ze2mcz.png"
+              className="website-logo-login"
+              alt="website logo"
             />
-
-            <label className="label" htmlFor="password">
-              PASSWORD
-            </label>
-            <input
-              id="password"
-              value={password}
-              onChange={this.onChangePassword}
-              type="password"
-              className="user-input password-input"
-            />
-            {submitError && <p className="error-msg">{errorMsg}</p>}
-            <button type="submit" className="login-btn">
-              Login
-            </button>
-          </form>
-        </div>
-        <div className="login-bg-container-desktop">
-          <div className="login-content-container-desktop">
-            <div className="content-left-section-container-desktop">
-              <div className="desktop-login-container">
-                <img
-                  src="https://res.cloudinary.com/dvzcnvazm/image/upload/v1764493337/chef-hat_ze2mcz.png"
-                  className="chef-hat-icon"
-                  alt="website logo"
-                />
-                <h1 className="tasty-kitchen-heading-desktop-login-view">
-                  Tasty Kitchens
-                </h1>
-                <h1 className="login-heading-desktop-login-view">Login</h1>
-                <form
-                  onSubmit={this.submitForm}
-                  className="login-form-desktop-view"
-                >
-                  <label htmlFor="username" className="label-desktop-view">
-                    USERNAME
-                  </label>
-                  <input
-                    id="username"
-                    value={username}
-                    onChange={this.onChangeUsername}
-                    type="text"
-                    className="user-input-desktop-view"
-                  />
-                  <label htmlFor="password" className="label-desktop-view">
-                    PASSWORD
-                  </label>
-                  <input
-                    id="password"
-                    value={password}
-                    onChange={this.onChangePassword}
-                    type="password"
-                    className="user-input-desktop-view password-input-desktop-view"
-                  />
-                  {submitError && (
-                    <p className="error-msg-desktop-view">{errorMsg}</p>
-                  )}
-                  <button type="submit" className="login-btn-desktop-view">
-                    Login
-                  </button>
-                </form>
-              </div>
-            </div>
-            <div className="content-right-section-container-desktop">
-              <img
-                src="https://res.cloudinary.com/dvzcnvazm/image/upload/v1764495620/desktop-view-tastykitchen-login-image_vz7udt.png"
-                className="tasty-kitchen-desktop-view-image"
-                alt="website login"
+            <h1 className="tasty-kitchens-heading-login">Tasty Kitchens</h1>
+            <p className="login-heading-desktop">Login</p>
+            <form onSubmit={this.submitForm} className="login-container">
+              <label className="label" htmlFor="username">
+                USERNAME
+              </label>
+              <input
+                id="username"
+                value={username}
+                onChange={this.onChangeUsername}
+                type="text"
+                className="user-input"
               />
-            </div>
+
+              <label className="label" htmlFor="password">
+                PASSWORD
+              </label>
+              <input
+                id="password"
+                value={password}
+                onChange={this.onChangePassword}
+                type="password"
+                className="user-input password-input"
+              />
+              {submitError && <p className="error-msg">{errorMsg}</p>}
+              <button type="submit" className="login-btn">
+                Login
+              </button>
+            </form>
           </div>
+          <img
+            src="https://res.cloudinary.com/dvzcnvazm/image/upload/v1764495620/desktop-view-tastykitchen-login-image_vz7udt.png"
+            className="login-image-desktop"
+            alt="login image desktop"
+          />
         </div>
       </>
     )

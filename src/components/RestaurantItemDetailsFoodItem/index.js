@@ -103,15 +103,17 @@ class RestaurantItemDetailsFoodItem extends Component {
               : this.counter(itemQuantity, isItemInCart)}
 
             <div className="btn-link-item-container">
-              <button
-                onClick={this.onClickAddBtn}
-                type="button"
-                className={
-                  isItemInCart ? 'food-item-add-btn' : 'food-item-add-btn'
-                }
-              >
-                Add
-              </button>
+              {itemQuantity !== 0 ? null : (
+                <button
+                  onClick={this.onClickAddBtn}
+                  type="button"
+                  className={
+                    isItemInCart ? 'food-item-add-btn' : 'food-item-add-btn'
+                  }
+                >
+                  Add
+                </button>
+              )}
               {itemQuantity !== 0 ? (
                 <div className="link-item-close-icon-container">
                   <Link className="go-to-car-link-item" to="/cart">

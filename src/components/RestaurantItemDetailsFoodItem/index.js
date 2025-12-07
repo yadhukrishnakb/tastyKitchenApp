@@ -20,7 +20,6 @@ class RestaurantItemDetailsFoodItem extends Component {
       id,
       imageUrl,
       name,
-      unitCost: cost,
     }
 
     onAddItem(product)

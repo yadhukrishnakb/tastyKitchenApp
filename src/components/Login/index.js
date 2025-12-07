@@ -102,7 +102,7 @@ class Login extends Component {
                 <h1 className="tasty-kitchen-heading-desktop-login-view">
                   Tasty Kitchens
                 </h1>
-                <p className="login-heading-desktop-login-view">Login</p>
+                <h1 className="login-heading-desktop-login-view">Login</h1>
                 <form
                   onSubmit={this.submitForm}
                   className="login-form-desktop-view"

@@ -139,14 +139,14 @@ class RestaurantItemDetails extends Component {
             if (eachItem.id === id) {
               const updatedtQuantity =
                 eachItem.quantity > 0 ? eachItem.quantity - 1 : 0
-              const updatedtCost = eachItem.unitCost * updatedtQuantity
+              const updatedtCost =
+                (eachItem.cost / eachItem.quantity) * updatedtQuantity
               return {
                 cost: updatedtCost,
                 quantity: updatedtQuantity,
                 id: eachItem.id,
                 imageUrl: eachItem.imageUrl,
                 name: eachItem.name,
-                unitCost: eachItem.unitCost,
               }
             }
             return eachItem
@@ -164,14 +164,14 @@ class RestaurantItemDetails extends Component {
           .map(eachItem => {
             if (eachItem.id === id) {
               const updatedQuantity = eachItem.quantity + 1
-              const updatedtCost = eachItem.unitCost * updatedQuantity
+              const updatedtCost =
+                (eachItem.cost / eachItem.quantity) * updatedQuantity
               return {
                 cost: updatedtCost,
                 quantity: updatedQuantity,
                 id: eachItem.id,
                 imageUrl: eachItem.imageUrl,
                 name: eachItem.name,
-                unitCost: eachItem.unitCost,
               }
             }
             return eachItem
